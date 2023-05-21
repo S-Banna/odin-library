@@ -77,5 +77,11 @@ function display() {
                 myLibrary[l].read = false;
             }
         });
+        removeButton.addEventListener('click', () => {
+            console.log(myLibrary);
+            myLibrary.splice(l, 1);
+            console.log(myLibrary);
+            display();
+        })
     }
 }
