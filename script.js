@@ -22,18 +22,12 @@ add.addEventListener("click", makeBook);
 function makeBook() {
     event.preventDefault();
     let titleTemp = document.getElementById("title").value;
-    console.log(titleTemp);
     let authorTemp = document.getElementById("author").value;
-    console.log(authorTemp);
     let pagesTemp = document.getElementById("pages").value;
-    console.log(pagesTemp);
     let read = document.getElementById("is-read").checked;
-    console.log(read);
     i = i + 1;
-    console.log(i + " is i")
     let tempBook = new Book(titleTemp, authorTemp, pagesTemp, read, i);
     myLibrary[i] = tempBook;
-    console.log(myLibrary);
     toggleForm();
     display();
     document.getElementById("title").value = '';
@@ -45,7 +39,7 @@ function makeBook() {
 function display() {
     let j = myLibrary.length;
     document.getElementById("bookCont").textContent = '';
-    for (l = 0; l < j; l++) {
+    for (let l = 0; l < j; l++) {
         let cont = document.createElement("div");
         document.getElementById("bookCont").appendChild(cont);
         let titleBookTemp = myLibrary[l].title;
@@ -53,7 +47,6 @@ function display() {
         let pagesBookTemp = myLibrary[l].pages;
         let isRead = myLibrary[l].read;
         let number = myLibrary[l].number;
-        console.log(titleBookTemp + authorBookTemp + pagesBookTemp + isRead + number);
         let titleHold = document.createElement("p");
         titleHold.textContent = titleBookTemp;
         cont.appendChild(titleHold);
@@ -70,6 +63,11 @@ function display() {
         } else {
             readButton.style.backgroundColor = 'red';
         }
+        cont.appendChild(readButton);
+        let removeButton = document.createElement("button");
+        removeButton.textContent = 'Remove';
+        removeButton.style.backgroundColor = 'grey';
+        cont.appendChild(removeButton);
         readButton.addEventListener('click', () => {
             if (myLibrary[l].read == false) {
                 readButton.style.backgroundColor = 'green';
@@ -79,10 +77,5 @@ function display() {
                 myLibrary[l].read = false;
             }
         });
-        cont.appendChild(readButton);
-        let removeButton = document.createElement("button");
-        removeButton.textContent = 'Remove';
-        removeButton.style.backgroundColor = 'grey';
-        cont.appendChild(removeButton);
     }
 }
