@@ -1,5 +1,31 @@
 let myLibrary = [];
 let UIbookCont = document.getElementById("bookCont");
+let formCont = document.getElementById("formCont");
+let title = document.getElementById("title");
+let author = document.getElementById("author");
+let page = document.getElementById("page");
+let addBut = document.getElementById("addBut");
+const titleError = document.querySelector("#title + span.error");
+const authorError = document.querySelector("#author + span.error");
+const pageError = document.querySelector("#page + span.error");
+
+title.addEventListener("input", () => {titleError.textContent = '';})
+author.addEventListener("input", () => {authorError.textContent = '';})
+page.addEventListener("input", () => {pageError.textContent = '';})
+
+
+addBut.addEventListener("click", function checker() {
+    if(title.validity.valid && author.validity.valid && page.validity.valid) {
+        addBook()
+        titleError.textContent = "";
+        authorError.textContent = "";
+        pageError.textContent = "";
+    } else {
+       if (!title.validity.valid) {titleError.textContent = "A book needs a title"}
+       if (!author.validity.valid) {authorError.textContent = "A book needs an author"}
+       if (!page.validity.valid) {pageError.textContent = "A book 1-1000 pages"}
+    }
+});
 
 class Book {
     constructor(author, title, pages, id) {
@@ -11,16 +37,22 @@ class Book {
 }
 
 let createBook = document.getElementById("newbook");
-createBook.addEventListener("click", addBook);
+createBook.addEventListener("click", function() {
+    formCont.classList.toggle('hide');
+});
 
 function addBook() {  
     let i = myLibrary.length;
 
-    let newAuthor = prompt("Type name of author");
-    let newTitle = prompt("Type name of title");
-    let newPages = prompt("Type number of pages");
+    let newAuthor = author.value;
+    author.value = '';
+    let newTitle = title.value;
+    title.value = '';
+    let newPages = page.value;
+    page.value = '';
     let newId = i;
 
+    formCont.classList.toggle('hide');
     let newBook = new Book(newAuthor, newTitle, newPages, newId);
 
     myLibrary.push(newBook);
@@ -32,7 +64,7 @@ function addBook() {
 function addBooksToUI() {
     UIbookCont.innerHTML = "";
 
-    myLibrary.forEach(function(Book) {
+    myLibrary.forEach(function(Book, index) {
         let tempBook = document.createElement("div");
         let tempAuthor = document.createElement("p");
         tempAuthor.textContent = Book.author;
@@ -46,7 +78,7 @@ function addBooksToUI() {
         let tempRemove = document.createElement("button");
         tempRemove.textContent = "remove";
         tempRemove.addEventListener("click", remove => {
-            myLibrary.splice(Book, 1);
+            myLibrary.splice(index, 1);
             addBooksToUI();
         });
         tempButton.addEventListener("click", switchColor => { 

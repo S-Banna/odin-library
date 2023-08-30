@@ -1,154 +1,159 @@
 @font-face {
-    font-family: 'Ubuntu';
-    src: url('Ubuntu-Regular.woff2') format('woff2'),
-        url('Ubuntu-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Ubuntu";
+  src: url("Ubuntu-Regular.woff2") format("woff2"),
+    url("Ubuntu-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 html,
 body {
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #e9e9e9;
-    font-family: Ubuntu, sans-serif;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #e9e9e9;
+  font-family: Ubuntu, sans-serif;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: inset 0px -4px rgba(0, 0, 0, 0.534);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: inset 0px -4px rgba(0, 0, 0, 0.534);
 }
 
 .header * {
-    margin: 0px 10px 0px 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .header button {
-    padding: 10px 20px 10px 20px;
-    background-image: linear-gradient(to right, white, rgb(209, 209, 209));
-    border: 1px solid gray;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
+  padding: 10px 20px 10px 20px;
+  background-image: linear-gradient(to right, white, rgb(209, 209, 209));
+  border: 1px solid gray;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
 }
 
 .header button:hover {
-    color: rgb(192, 192, 192);
-    background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
+  color: rgb(192, 192, 192);
+  background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
 }
 
 #bookCont {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    max-width: 100%;
-    grid-template-rows: 1fr;
-    gap: 20px;
-    place-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  max-width: 100%;
+  grid-template-rows: 1fr;
+  gap: 20px;
+  place-items: center;
 }
 
-#bookCont>div {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(156, 0, 0);
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-    max-width: 350px;
-    font-size: 18px;
-    border: 10px solid black;
-    padding: 10px 100px 10px 100px;
+#bookCont > div {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(156, 0, 0);
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  max-width: 350px;
+  font-size: 18px;
+  border: 10px solid black;
+  padding: 10px 100px 10px 100px;
 }
 
 #bookCont p {
-    margin: 10px;
+  margin: 10px;
 }
 
-#bookCont>div>button {
-    margin-bottom: 10px;
-    margin-top: 2px;
-    font-size: 16px;
-    padding: 10px;
+#bookCont > div > button {
+  margin-bottom: 10px;
+  margin-top: 2px;
+  font-size: 16px;
+  padding: 10px;
 }
 
-#bookCont>div>button {
-    background-color: green;
+#bookCont > div > button {
+  background-color: green;
 }
 
 .newCont {
-    display: flex;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 #newbook {
-    max-width: 80px;
-    padding: 10px;
-    margin: 3px;
-    padding: 10px 20px 10px 20px;
-    background-image: linear-gradient(to right, white, rgb(209, 209, 209));
-    border: 1px solid gray;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
+  max-width: 80px;
+  padding: 10px;
+  margin: 3px;
+  padding: 10px 20px 10px 20px;
+  background-image: linear-gradient(to right, white, rgb(209, 209, 209));
+  border: 1px solid gray;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
 }
 
 #newbook:hover {
-    color: rgb(192, 192, 192);
-    background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
+  color: rgb(192, 192, 192);
+  background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
 }
 
 #formCont {
-    display: none;
-}
-
-#formCont.active {
-    display: block;
-    border: 5px solid;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    background-color: grey;
+  display: block;
+  border: 5px solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-color: grey;
+  width: 300px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 form button {
-    padding: 10px;
-    margin: 3px;
-    padding: 10px 20px 10px 20px;
-    background-image: linear-gradient(to right, white, rgb(209, 209, 209));
-    border: 1px solid gray;
-    font-size: 14px;
-    transition: all 0.2s ease-in-out;
+  padding: 10px;
+  margin: 3px;
+  padding: 10px 20px 10px 20px;
+  background-image: linear-gradient(to right, white, rgb(209, 209, 209));
+  border: 1px solid gray;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
 }
 
 form button:hover {
-    color: rgb(192, 192, 192);
-    background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
-}
-
-form h3 {
-    margin: 10px 0px 10px 0px;
+  color: rgb(192, 192, 192);
+  background-image: linear-gradient(to right, gray, rgba(0, 0, 0, 0.87));
 }
 
 input {
-    background-color: grey;
+  background-color: grey;
 }
 
 input::placeholder {
-    color: rgba(255, 255, 255, 0.849);
+  color: rgba(255, 255, 255, 0.849);
 }
 
 .hide {
-    display: none !important;
+  display: none !important;
+}
+
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
 }
